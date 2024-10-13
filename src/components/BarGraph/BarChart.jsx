@@ -87,7 +87,7 @@ export function Component({ transactions }) {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Bar Chart - Income vs. Expenses</CardTitle>
+        <CardTitle>Bar Chart - Income vs Expenses</CardTitle>
         <CardDescription>Select time period to filter</CardDescription>
       </CardHeader>
 
@@ -108,14 +108,14 @@ export function Component({ transactions }) {
       {/* Bar chart rendering */}
       <CardContent>
         <ChartContainer config={chartConfig}>
-          <BarChart data={chartData} margin={{ left: 12, right: 12 }}>
+          <BarChart data={chartData}>
             <CartesianGrid vertical={false} />
             <XAxis
               dataKey="timeKey"
               tickLine={false}
               axisLine={false}
               tickMargin={10}
-              interval={0} // Ensures all periods are displayed
+              interval={0}
             />
             <YAxis />
             <ChartTooltip cursor={false} content={<ChartTooltipContent />} className="bg-white" />
@@ -129,10 +129,7 @@ export function Component({ transactions }) {
         <div className="flex w-full items-start gap-2 text-sm">
           <div className="grid gap-2">
             <div className="flex items-center gap-2 font-medium leading-none">
-              Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
-            </div>
-            <div className="flex items-center gap-2 leading-none text-muted-foreground">
-              Showing income and expenses for the selected time period
+              The more you learn, the more you earn <TrendingUp className="h-4 w-4" />
             </div>
           </div>
         </div>

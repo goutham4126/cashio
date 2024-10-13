@@ -24,14 +24,14 @@ export default async function Home() {
         Please wait ...
       </h1>
     </div>}>
-      <div className="flex gap-10 mt-4">
+      <div className="flex flex-col md:flex-row gap-6 md:gap-10 md:mt-4">
        <div className="flex-1 flex items-center p-6 shadow-[rgba(13,_38,_76,_0.19)_0px_9px_20px] border-2 border-chart-5 rounded-2xl h-32">
             <div className="bg-card p-4 mr-5">
               <FaRupeeSign className="h-10 w-10 "/>
             </div>
             <div>
                <h1 className="text-lg font-medium text-chart-1">Transactions</h1>
-               <p className="text-sm text-chart-4 font-bold">{length}</p>
+               <p className="text-sm text-chart-4 font-bold">{length.toLocaleString()}</p>
             </div>
         </div>
         <div className="flex-1 flex items-center p-6 shadow-[rgba(13,_38,_76,_0.19)_0px_9px_20px]  border-2 border-chart-5 rounded-2xl h-32">
@@ -40,7 +40,7 @@ export default async function Home() {
             </div>
             <div>
                <h1 className="text-lg font-medium text-chart-1">Total Income</h1>
-               <p className="text-sm text-green-600 font-bold">{income}</p>
+               <p className="text-sm text-green-600 font-bold">{income.toLocaleString()}</p>
             </div>
         </div>
         <div className="flex-1 flex items-center p-6 shadow-[rgba(13,_38,_76,_0.19)_0px_9px_20px] border-2 border-chart-5 rounded-2xl h-32">
@@ -49,7 +49,7 @@ export default async function Home() {
             </div>
             <div>
                <h1 className="text-lg font-medium text-chart-1">Total Expenses</h1>
-               <p className="text-sm text-red-600 font-bold">{expense}</p>
+               <p className="text-sm text-red-600 font-bold">{expense.toLocaleString()}</p>
             </div>
         </div>
         <div className="flex-1 flex items-center p-6 shadow-[rgba(13,_38,_76,_0.19)_0px_9px_20px] border-2 border-chart-5 rounded-2xl h-32">
@@ -60,7 +60,7 @@ export default async function Home() {
                 balance>=0?
                 <div>
                   <h1 className="text-lg font-medium text-chart-1">Balance</h1>
-                  <p className="text-sm text-blue-600 font-bold">{balance}</p>
+                  <p className="text-sm text-blue-600 font-bold">{balance.toLocaleString()}</p>
                 </div>
                 :
                 <div>
@@ -70,7 +70,7 @@ export default async function Home() {
               }
         </div>
     </div>
-    <div className="flex gap-4 mt-10">
+    <div className="flex md:flex-row flex-col gap-4 mt-5 md:mt-10">
         <div>
           <PieComponent/>
         </div>
@@ -78,7 +78,7 @@ export default async function Home() {
           <TableComponent/>
         </div>
       </div>
-     <div className="flex gap-4 mt-8 items-center">
+     <div className="flex md:flex-row flex-col gap-4 mt-5 md:mt-8 items-center">
         <div className="flex-1">
             <MainComponent/>
         </div>

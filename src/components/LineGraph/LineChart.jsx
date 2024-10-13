@@ -21,9 +21,8 @@ import {
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"; // Assuming you're using a Select component
 
 export function MultiLine({ transactions }) {
-  const [timePeriod, setTimePeriod] = useState("month"); // Default view is month-wise
-
-  // Prepare the chart data based on the transactions
+  const [timePeriod, setTimePeriod] = useState("month"); 
+  
   const chartData = transactions.reduce((acc, transaction) => {
     const date = new Date(transaction.transactionTime);
     let timeKey;
@@ -57,7 +56,7 @@ export function MultiLine({ transactions }) {
     return acc;
   }, []);
 
-  // Sort the chartData
+
   if (timePeriod === "month") {
     const monthOrder = [
       "January", "February", "March", "April", "May", "June",
@@ -84,11 +83,9 @@ export function MultiLine({ transactions }) {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Line Chart - Income vs. Expense</CardTitle>
+        <CardTitle>Line Chart - Income vs Expenses</CardTitle>
         <CardDescription>Select time period to filter</CardDescription>
       </CardHeader>
-
-      {/* Dropdown for selecting time period */}
       <CardContent>
         <Select onValueChange={(value) => setTimePeriod(value)} defaultValue="month">
           <SelectTrigger>
@@ -116,7 +113,7 @@ export function MultiLine({ transactions }) {
               tickLine={false}
               axisLine={false}
               tickMargin={8}
-              interval={0} // Ensures all periods are displayed
+              interval={0}
             />
             <YAxis />
             <ChartTooltip cursor={false} content={<ChartTooltipContent />} className="bg-white"/>
@@ -130,10 +127,7 @@ export function MultiLine({ transactions }) {
         <div className="flex w-full items-start gap-2 text-sm">
           <div className="grid gap-2">
             <div className="flex items-center gap-2 font-medium leading-none">
-              Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
-            </div>
-            <div className="flex items-center gap-2 leading-none text-muted-foreground">
-              Showing income and expense data for the selected time period
+            The more you learn, the more you earn <TrendingUp className="h-4 w-4" />
             </div>
           </div>
         </div>

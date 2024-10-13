@@ -40,9 +40,9 @@ function Table({ transactions }) {
 
   return (
     <main className="border-2 border-card rounded-t-xl">
-      <div className="w-full flex justify-between items-center mt-1 p-3">
+      <div className="w-full flex md:flex-row flex-col gap-3 justify-between items-center mt-1 p-3 md:p-1 md:px-4">
         <div>
-          <h3 className="text-lg font-semibold text-slate-800">Overview of your transactions.</h3>
+          <h3 className="text-lg font-semibold text-slate-800">Overview of your transactions :</h3>
         </div>
         <div className="w-full max-w-sm min-w-[200px]">
           <input
@@ -58,26 +58,26 @@ function Table({ transactions }) {
         <table className="w-full text-left table-auto min-w-max">
           <thead className="bg-card">
             <tr className="border-l-4 border-l-card">
-              <th className="p-4 border-b border-slate-200">Title</th>
-              <th className="p-4 border-b border-slate-200">Category</th>
-              <th className="p-4 border-b border-slate-200">Amount</th>
-              <th className="p-4 border-b border-slate-200">Date</th>
-              <th className="p-4 border-b border-slate-200">Type</th>
-              <th className="p-4 border-b border-slate-200">Actions</th>
+              <th className="p-3 border-b border-slate-200">Title</th>
+              <th className="p-3 border-b border-slate-200">Category</th>
+              <th className="p-3 border-b border-slate-200">Amount</th>
+              <th className="p-3 border-b border-slate-200">Date</th>
+              <th className="p-3 border-b border-slate-200">Type</th>
+              <th className="p-3 border-b border-slate-200">Actions</th>
             </tr>
           </thead>
           <tbody>
             {currentItems.length > 0 ? (
               currentItems.map((item, index) => (
                 <tr key={index} className={`${item.transactionType === 'income' ? "border-l-4 border-l-green-600":"border-l-4 border-l-red-600"} text-chart-4 font-medium text-base`}>
-                  <td className="p-4 py-5">{item.title}</td>
-                  <td className="p-4 py-5">{item.category}</td>
-                  <td className="p-4 py-5">{item.amount}</td>
-                  <td className="p-4 py-5">{new Date(item.transactionTime).toLocaleDateString()}</td>
-                  <td className={`p-4 py-5 text-sm ${item.transactionType === 'income' ? 'text-green-700' : 'text-red-700'}`}>
+                  <td className="p-3 py-5">{item.title}</td>
+                  <td className="p-3 py-5">{item.category}</td>
+                  <td className="p-3 py-5">{item.amount}</td>
+                  <td className="p-3 py-5">{new Date(item.transactionTime).toLocaleDateString()}</td>
+                  <td className={`p-3 py-5 text-sm ${item.transactionType === 'income' ? 'text-green-700' : 'text-red-700'}`}>
                     {item.transactionType.charAt(0).toUpperCase() + item.transactionType.slice(1)}
                   </td>
-                  <td className="p-4 py-5">
+                  <td className="p-3 py-5">
                     <button className="text-red-700 hover:underline" onClick={()=>Delete(item.id)}><MdOutlineDelete className="h-5 w-5" /></button>
                   </td>
                 </tr>
@@ -93,7 +93,7 @@ function Table({ transactions }) {
         </table>
 
         <div className="flex justify-between items-center px-4 py-3">
-          <div className="text-sm text-chart-2">
+          <div className="hidden md:flex text-sm text-chart-2">
             Showing {indexOfFirstItem + 1}-{Math.min(indexOfLastItem, filteredData.length)} of {filteredData.length}
           </div>
           <div className="flex space-x-1">

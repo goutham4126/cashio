@@ -2,6 +2,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { ClerkProvider } from "@clerk/nextjs";
+import Footer from "@/components/Footer";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -39,6 +40,9 @@ export default function RootLayout({ children }) {
           </div>
           <div className="p-8 pt-20">
             {children}
+          </div>
+          <div style={{backgroundColor:"#fff4e8"}}>
+            <Footer/>
           </div>
         </div>
       </body>

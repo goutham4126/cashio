@@ -78,8 +78,8 @@ export function Donut({ transactions }) {
   return (
     <Card className="flex flex-col">
       <CardHeader className="items-center">
-        <CardTitle>Pie Chart - Donut with Text</CardTitle>
-        <CardDescription>January - June 2024</CardDescription>
+        <CardTitle>Donut Chart - Income vs Expenses</CardTitle>
+        <CardDescription>Select category to display</CardDescription>
       </CardHeader>
       <CardContent className="flex-1">
         {/* Dropdown for selecting transaction type */}
@@ -145,10 +145,7 @@ export function Donut({ transactions }) {
       </CardContent>
       <CardFooter className="flex-col gap-2 text-sm">
         <div className="flex items-center gap-2 font-medium leading-none">
-          Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
-        </div>
-        <div className="leading-none text-muted-foreground">
-          Showing total {transactionType === "income" ? "income" : "expenses"} for the last 6 months
+        The more you learn, the more you earn <TrendingUp className="h-4 w-4" />
         </div>
       </CardFooter>
     </Card>
